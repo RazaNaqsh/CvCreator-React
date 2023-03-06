@@ -1,7 +1,11 @@
+import Form from "./components/Form";
+import Preview from "./components/Preview";
+
 function App() {
 	return (
 		<div className="App">
-			<h1>This is Vite React</h1>
+			<Form />
+			<Preview />
 		</div>
 	);
 }
