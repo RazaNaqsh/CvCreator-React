@@ -5,25 +5,25 @@ export default function Preview(props) {
 	const genInfoElements = (
 		<div>
 			<h2>{props.genInfo.name}</h2>
-			<p>{props.genInfo.email}</p>
-			<p>{props.genInfo.phone}</p>
+			<p>Email: {props.genInfo.email}</p>
+			<p>Phone: {props.genInfo.phone}</p>
 		</div>
 	);
 	const eduInfoElements = props.eduInfo.map((item) => {
 		return (
 			<div key={item.id}>
-				<h3>{item.title}</h3>
-				<p>{item.place}</p>
-				<p>{item.date}</p>
+				<h3>Course: {item.title}</h3>
+				<p>Place: {item.place}</p>
+				<p>Date studied: {item.date}</p>
 			</div>
 		);
 	});
 	const workInfoElements = props.workInfo.map((item) => {
 		return (
 			<div key={item.id}>
-				<h3>{item.company}</h3>
-				<p>{item.position}</p>
-				<p>{item.duration}</p>
+				<h3>Company name: {item.company}</h3>
+				<p>Position worked for: {item.position}</p>
+				<p>Duration: {item.duration}</p>
 			</div>
 		);
 	});
