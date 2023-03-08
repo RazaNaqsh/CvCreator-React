@@ -8,7 +8,7 @@ function App() {
 		phone: "",
 	});
 
-	function handleChange(e) {
+	function handleGeneralInfo(e) {
 		const { name, value } = e.target;
 		setGeneralInfo((prevData) => ({
 			...prevData,
@@ -24,7 +24,7 @@ function App() {
 				{item}
 				<input
 					type="text"
-					onChange={handleChange}
+					onChange={handleGeneralInfo}
 					name={item}
 					value={generalInfo.item}
 				/>
@@ -32,21 +32,58 @@ function App() {
 		);
 	});
 
-	const [eduExpArr, setEduExpArr] = React.useState([
-		["title of study", "school name", "date"],
+	const [eduExpInfo, setEduExpInfo] = React.useState([
+		{
+			id: 0,
+			title: "",
+			place: "",
+			date: "",
+		},
 	]);
 
-	const eduExpElements = eduExpArr.map((field) => {
+	const [eduExpArr, setEduExpArr] = React.useState([
+		["title", "place", "date"],
+	]);
+
+	function handleEduInfo(e, index) {
+		const { name, value } = e.target;
+		setEduExpInfo((prevData) => {
+			return prevData.map((info) =>
+				info.id === index ? { ...info, [name]: value } : info
+			);
+		});
+		console.log(eduExpInfo);
+	}
+
+	const eduExpElements = eduExpArr.map((field, index) => {
 		return (
 			<div className="form-field-container">
 				<label>
-					{field[0]} <input type="text" />
+					Title of Study
+					<input
+						type="text"
+						onChange={() => handleEduInfo(event, index)}
+						name={field[0]}
+						value={eduExpArr[index].title}
+					/>
 				</label>
 				<label>
-					{field[1]} <input type="text" />
+					Place of Study
+					<input
+						type="text"
+						onChange={() => handleEduInfo(event, index)}
+						name={field[1]}
+						value={eduExpArr[index].place}
+					/>
 				</label>
 				<label>
-					{field[2]} <input type="text" />
+					Date
+					<input
+						type="text"
+						onChange={() => handleEduInfo(event, index)}
+						name={field[2]}
+						value={eduExpArr[index].date}
+					/>
 				</label>
 			</div>
 		);
@@ -54,9 +91,13 @@ function App() {
 
 	function newField() {
 		setEduExpArr((prevArr) => {
-			return [...prevArr, ["title of study", "school name", "date"]];
+			return [...prevArr, ["title", "place", "date"]];
 		});
-		console.log(eduExpArr);
+		setEduExpInfo((prevData) => [
+			...prevData,
+			{ id: eduExpInfo.length, title: "", place: "", date: "" },
+		]);
+		console.log(eduExpInfo);
 	}
 
 	return (
@@ -68,8 +109,8 @@ function App() {
 					<div className="form-field-container">{generalInputElements}</div>
 
 					<h2>Enter your Educational Details</h2>
-					<button onClick={newField}>Add</button>
 					{eduExpElements}
+					<button onClick={newField}>Add</button>
 				</section>
 			</div>
 
