@@ -37,8 +37,28 @@ function App() {
 		{
 			id: nanoid(),
 			title: "",
+			place: "",
 		},
 	]);
+
+	function handleEduChange(e, id) {
+		console.log(id);
+		const { name, value } = e.target;
+		setEduInfo((prevData) => {
+			return prevData.map((item) =>
+				item.id === id ? { ...item, [name]: value } : item
+			);
+		});
+		console.log(eduInfo);
+	}
+
+	function newField() {
+		setEduInfo((prevData) => [
+			...prevData,
+			{ id: nanoid(), title: "", place: "" },
+		]);
+	}
+
 	const eduElements = eduInfo.map((item) => (
 		<div
 			key={item.id}
@@ -53,23 +73,19 @@ function App() {
 					value={item.title}
 				/>
 			</label>
+			<label>
+				Place
+				<input
+					type="text"
+					onChange={() => handleEduChange(event, item.id)}
+					name="place"
+					value={item.place}
+				/>
+			</label>
+			{eduInfo.length > 1 && <button>Delete</button>}
 		</div>
 	));
 
-	function handleEduChange(e, id) {
-		console.log(id);
-		const { name, value } = e.target;
-		setEduInfo((prevData) => {
-			return prevData.map((item) =>
-				item.id === id ? { ...item, [name]: value } : item
-			);
-		});
-		console.log(eduInfo);
-	}
-
-	function newField() {
-		setEduInfo((prevData) => [...prevData, { id: nanoid(), title: "" }]);
-	}
 	return (
 		<div className="App">
 			<div className="form-container">
