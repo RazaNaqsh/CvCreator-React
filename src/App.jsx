@@ -15,13 +15,13 @@ function App() {
 			[name]: value,
 		}));
 	}
-	console.log(generalInfo);
+	// console.log(generalInfo);
 
 	const generalInfoArr = ["name", "email", "phone"];
 	const generalInputElements = generalInfoArr.map((item) => {
 		return (
 			<label>
-				{item}{" "}
+				{item}
 				<input
 					type="text"
 					onChange={handleChange}
@@ -31,6 +31,34 @@ function App() {
 			</label>
 		);
 	});
+
+	const [eduExpArr, setEduExpArr] = React.useState([
+		["title of study", "school name", "date"],
+	]);
+
+	const eduExpElements = eduExpArr.map((field) => {
+		return (
+			<div className="form-field-container">
+				<label>
+					{field[0]} <input type="text" />
+				</label>
+				<label>
+					{field[1]} <input type="text" />
+				</label>
+				<label>
+					{field[2]} <input type="text" />
+				</label>
+			</div>
+		);
+	});
+
+	function newField() {
+		setEduExpArr((prevArr) => {
+			return [...prevArr, ["title of study", "school name", "date"]];
+		});
+		console.log(eduExpArr);
+	}
+
 	return (
 		<div className="App">
 			<div className="form-container">
@@ -40,7 +68,8 @@ function App() {
 					<div className="form-field-container">{generalInputElements}</div>
 
 					<h2>Enter your Educational Details</h2>
-					{/* {eduExpElements} */}
+					<button onClick={newField}>Add</button>
+					{eduExpElements}
 				</section>
 			</div>
 
