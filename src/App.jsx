@@ -3,6 +3,8 @@ import React from "react";
 import Preview from "./components/Preview";
 
 function App() {
+	//* general info field
+
 	const [generalInfo, setGeneralInfo] = React.useState({
 		name: "",
 		email: "",
@@ -33,6 +35,8 @@ function App() {
 		);
 	});
 
+	//* Educational field
+
 	const [eduInfo, setEduInfo] = React.useState([
 		{
 			id: nanoid(),
@@ -42,25 +46,25 @@ function App() {
 	]);
 
 	function handleEduChange(e, id) {
-		console.log(id);
+		// console.log(id);
 		const { name, value } = e.target;
 		setEduInfo((prevData) => {
 			return prevData.map((item) =>
 				item.id === id ? { ...item, [name]: value } : item
 			);
 		});
-		console.log(eduInfo);
+		// console.log(eduInfo);
 	}
 
 	function newField() {
 		setEduInfo((prevData) => [
 			...prevData,
-			{ id: nanoid(), title: "", place: "" },
+			{ id: nanoid(), title: "", place: "", date: "" },
 		]);
 	}
 
 	function deleteField(id) {
-		console.log(id);
+		// console.log(id);
 		setEduInfo((prevData) => {
 			return prevData.filter((item) => item.id !== id);
 		});
@@ -89,6 +93,15 @@ function App() {
 					value={item.place}
 				/>
 			</label>
+			<label>
+				Date
+				<input
+					type="text"
+					onChange={() => handleEduChange(event, item.id)}
+					name="date"
+					value={item.date}
+				/>
+			</label>
 			{eduInfo.length > 1 && (
 				<button onClick={() => deleteField(item.id)}>Delete</button>
 			)}
@@ -109,7 +122,10 @@ function App() {
 				</section>
 			</div>
 
-			<Preview genInfo={generalInfo} />
+			<Preview
+				genInfo={generalInfo}
+				eduInfo={eduInfo}
+			/>
 		</div>
 	);
 }
