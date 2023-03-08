@@ -1,4 +1,22 @@
 .form-section {
   border: 1px solid white;
-  padding: 0.5rem;
+  padding: 1rem 1.5rem;
+}
+
+.form-field-container {
+  padding: 5px;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 0.5rem 1rem;
 }/*# sourceMappingURL=form.css.map */
