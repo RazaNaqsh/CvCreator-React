@@ -56,14 +56,14 @@ function App() {
 		// console.log(eduInfo);
 	}
 
-	function newField() {
+	function newEduField() {
 		setEduInfo((prevData) => [
 			...prevData,
 			{ id: nanoid(), title: "", place: "", date: "" },
 		]);
 	}
 
-	function deleteField(id) {
+	function deleteEduField(id) {
 		// console.log(id);
 		setEduInfo((prevData) => {
 			return prevData.filter((item) => item.id !== id);
@@ -103,10 +103,85 @@ function App() {
 				/>
 			</label>
 			{eduInfo.length > 1 && (
-				<button onClick={() => deleteField(item.id)}>Delete</button>
+				<button onClick={() => deleteEduField(item.id)}>Delete</button>
 			)}
 		</div>
 	));
+
+	// * work field
+	// TODO Needa make input fields reusable, will think on this!
+
+	const [workInfo, setWorkInfo] = React.useState([
+		{
+			id: nanoid(),
+			company: "",
+			position: "",
+			duration: "",
+		},
+	]);
+
+	function handleWorkChange(e, id) {
+		const { name, value } = e.target;
+		setWorkInfo((prevData) => {
+			return prevData.map((item) =>
+				item.id === id ? { ...item, [name]: value } : item
+			);
+		});
+		// console.log(workInfo);
+	}
+
+	function newWorkField() {
+		setWorkInfo((prevData) => [
+			...prevData,
+			{ id: nanoid(), company: "", position: "", duration: "" },
+		]);
+	}
+	function deleteWorkField(id) {
+		// console.log(id);
+		setWorkInfo((prevData) => {
+			return prevData.filter((item) => item.id !== id);
+		});
+	}
+
+	const workElements = workInfo.map((field) => {
+		return (
+			<div
+				key={field.id}
+				className="form-field-container"
+			>
+				<label>
+					Company Name
+					<input
+						type="text"
+						onChange={() => handleWorkChange(event, field.id)}
+						name="company"
+						value={field.company}
+					/>
+				</label>
+				<label>
+					Position
+					<input
+						type="text"
+						onChange={() => handleWorkChange(event, field.id)}
+						name="position"
+						value={field.position}
+					/>
+				</label>
+				<label>
+					Duration
+					<input
+						type="text"
+						onChange={() => handleWorkChange(event, field.id)}
+						name="duration"
+						value={field.duration}
+					/>
+				</label>
+				{workInfo.length > 1 && (
+					<button onClick={() => deleteWorkField(field.id)}>Delete</button>
+				)}
+			</div>
+		);
+	});
 
 	return (
 		<div className="App">
@@ -118,13 +193,18 @@ function App() {
 
 					<h2>Enter your Educational Details</h2>
 					{eduElements}
-					<button onClick={newField}>Add</button>
+					<button onClick={newEduField}>Add</button>
+
+					<h2>Enter Work Details</h2>
+					{workElements}
+					<button onClick={newWorkField}>Add</button>
 				</section>
 			</div>
 
 			<Preview
 				genInfo={generalInfo}
 				eduInfo={eduInfo}
+				workInfo={workInfo}
 			/>
 		</div>
 	);
