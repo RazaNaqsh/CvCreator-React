@@ -2,8 +2,9 @@ import React from "react";
 
 export default function Preview() {
 	return (
-		<div className="preview-section">
+		<div className="preview-container">
 			<h1>Preview</h1>
+			<section className="preview-section"></section>
 		</div>
 	);
 }
