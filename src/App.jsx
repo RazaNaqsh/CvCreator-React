@@ -59,13 +59,20 @@ function App() {
 		]);
 	}
 
+	function deleteField(id) {
+		console.log(id);
+		setEduInfo((prevData) => {
+			return prevData.filter((item) => item.id !== id);
+		});
+	}
+
 	const eduElements = eduInfo.map((item) => (
 		<div
 			key={item.id}
 			className="form-field-container"
 		>
 			<label>
-				Title
+				Title of Study
 				<input
 					type="text"
 					onChange={() => handleEduChange(event, item.id)}
@@ -74,7 +81,7 @@ function App() {
 				/>
 			</label>
 			<label>
-				Place
+				Place of Study
 				<input
 					type="text"
 					onChange={() => handleEduChange(event, item.id)}
@@ -82,7 +89,9 @@ function App() {
 					value={item.place}
 				/>
 			</label>
-			{eduInfo.length > 1 && <button>Delete</button>}
+			{eduInfo.length > 1 && (
+				<button onClick={() => deleteField(item.id)}>Delete</button>
+			)}
 		</div>
 	));
 
