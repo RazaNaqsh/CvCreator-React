@@ -20,10 +20,13 @@ export default function Preview(props) {
 	});
 	const workInfoElements = props.workInfo.map((item) => {
 		return (
-			<div key={item.id}>
-				<h3>Company name: {item.company}</h3>
-				<p>Position worked for: {item.position}</p>
-				<p>Duration: {item.duration}</p>
+			<div
+				key={item.id}
+				className="work-field"
+			>
+				<p className="work-position">{item.position}</p>
+				<p>{item.company}</p>
+				<p>{item.duration}</p>
 			</div>
 		);
 	});
@@ -31,15 +34,22 @@ export default function Preview(props) {
 		<div className="preview-container">
 			<div className="preview-section">
 				<header className="flex">{props.genInfo.name}</header>
-				<div className="email flex">{props.genInfo.email}</div>
+				<div className="email flex"></div>
 
-				<main className="main">
-					<aside className="sideBar">
-						<h4>Contact</h4>
+				<aside className="sideBar">
+					<p>Contact</p>
+					<p>
 						<small>{props.genInfo.phone}</small>
-					</aside>
-					<section></section>
-				</main>
+					</p>
+					<p>
+						<small>{props.genInfo.email}</small>
+					</p>
+				</aside>
+				<section>
+					<h3>Work Experience</h3>
+					{workInfoElements}
+				</section>
+
 				{/* <h1>Personal Info</h1>
 				{genInfoElements}
 

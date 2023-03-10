@@ -1,6 +1,6 @@
 .preview-section {
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: 2fr 6fr;
 	grid-template-rows: 1.5fr 0.5fr 8fr;
 	background-color: white;
 	color: #101214;
@@ -27,13 +27,33 @@ header {
 	background-color: #e4e4e7;
 	min-height: 2.5rem;
 }
+
 .sideBar {
 	background-color: #262626;
 	color: white;
 	width: 100%;
 	padding: 2rem 1rem;
+	letter-spacing: 1px;
+	p {
+		letter-spacing: 2px;
+	}
+	small {
+		font-size: 0.6rem;
+	}
 }
-
-main {
-	display: flex;
+section {
+	padding: 1rem;
+	h3 {
+		font-weight: 400;
+		letter-spacing: 2px;
+		border-bottom: 1px solid black;
+		padding: 0.5rem 0;
+		max-width: 12rem;
+	}
+	.work-field {
+		margin: 1rem 0;
+		.work-position {
+			font-weight: 700;
+		}
+	}
 }
