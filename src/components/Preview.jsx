@@ -11,10 +11,13 @@ export default function Preview(props) {
 	);
 	const eduInfoElements = props.eduInfo.map((item) => {
 		return (
-			<div key={item.id}>
-				<h3>Course: {item.title}</h3>
-				<p>Place: {item.place}</p>
-				<p>Date studied: {item.date}</p>
+			<div
+				key={item.id}
+				className="edu-field"
+			>
+				<p className="edu-course">{item.title}</p>
+				<p>{item.place}</p>
+				<p>{item.date}</p>
 			</div>
 		);
 	});
@@ -25,8 +28,8 @@ export default function Preview(props) {
 				className="work-field"
 			>
 				<p className="work-position">{item.position}</p>
-				<p>{item.company}</p>
-				<p>{item.duration}</p>
+				<span className="work-company">{item.company}</span> |{" "}
+				<span>{item.duration}</span>
 			</div>
 		);
 	});
@@ -34,16 +37,18 @@ export default function Preview(props) {
 		<div className="preview-container">
 			<div className="preview-section">
 				<header className="flex">{props.genInfo.name}</header>
-				<div className="email flex"></div>
+				<div className="currentPosition flex">{props.workInfo[0].position}</div>
 
 				<aside className="sideBar">
-					<p>Contact</p>
-					<p>
-						<small>{props.genInfo.phone}</small>
-					</p>
-					<p>
-						<small>{props.genInfo.email}</small>
-					</p>
+					<div className="contactInfo">
+						<h5>Contact</h5>
+						<p>{props.genInfo.phone}</p>
+						<p>{props.genInfo.email}</p>
+					</div>
+					<div className="eduInfo">
+						<h5>Education Info</h5>
+						{eduInfoElements}
+					</div>
 				</aside>
 				<section>
 					<h3>Work Experience</h3>
