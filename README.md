@@ -4,6 +4,10 @@ A React SPA (SinglePageApplication) to create a CV with. You can add, edit and
 delete input fields to put your data in. All of these changes are adopted by the
 preview CV in real-time
 
+## Live-Preview
+
+https://razanaqsh.github.io/Project-CvApplication/
+
 ## Features
 
 - Real-time adoption of changes
