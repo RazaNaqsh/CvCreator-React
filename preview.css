@@ -38,24 +38,26 @@ header {
   padding: 2rem 0.7rem;
   letter-spacing: 1px;
 }
-.sideBar h5 {
-  margin-bottom: 5px;
+.sideBar .contact-heading {
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-weight: 800;
 }
 .sideBar p {
   letter-spacing: 2px;
   font-size: 0.7rem;
   line-height: 1.5;
 }
-.sideBar .contactInfo {
-  padding: 1rem 0;
+.sideBar .contact-field {
+  margin: 1rem 0;
 }
 .sideBar .edu-field {
+  margin: 0 0 10px;
+}
+.sideBar .edu-info {
   margin: 1rem 0;
 }
-.sideBar .eduInfo {
-  margin: 1rem 0;
-}
-.sideBar .eduInfo .edu-course {
+.sideBar .edu-info .edu-course {
   font-weight: 700;
 }
 
@@ -77,5 +79,5 @@ section .work-field .work-position {
   font-weight: 700;
 }
 section .work-field .work-company {
-  font-weight: 600;
+  font-weight: 500;
 }/*# sourceMappingURL=preview.css.map */

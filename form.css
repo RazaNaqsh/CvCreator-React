@@ -8,17 +8,32 @@
   padding: 5px;
 }
 
+.field-title {
+  letter-spacing: 2px;
+}
+
+.field-title:not(:first-of-type) {
+  margin: 1rem 0 5px 0;
+}
+
+h1 {
+  letter-spacing: 2px;
+}
+
 input {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   background-color: #292929;
   color: #fff;
   border: none;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
 }
 
 label {
   display: flex;
   flex-direction: column;
+  letter-spacing: 1px;
 }
 
 button {
