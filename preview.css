@@ -24,25 +24,39 @@ header {
   letter-spacing: 3px;
 }
 
-.email {
+.currentPosition {
   grid-column: 1/3;
   grid-row: 2/3;
   background-color: #e4e4e7;
-  min-height: 2.5rem;
+  letter-spacing: 1px;
 }
 
 .sideBar {
   background-color: #262626;
   color: white;
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 2rem 0.7rem;
   letter-spacing: 1px;
+}
+.sideBar h5 {
+  margin-bottom: 5px;
 }
 .sideBar p {
   letter-spacing: 2px;
+  font-size: 0.7rem;
+  line-height: 1.5;
 }
-.sideBar small {
-  font-size: 0.6rem;
+.sideBar .contactInfo {
+  padding: 1rem 0;
+}
+.sideBar .edu-field {
+  margin: 1rem 0;
+}
+.sideBar .eduInfo {
+  margin: 1rem 0;
+}
+.sideBar .eduInfo .edu-course {
+  font-weight: 700;
 }
 
 section {
@@ -57,7 +71,11 @@ section h3 {
 }
 section .work-field {
   margin: 1rem 0;
+  letter-spacing: 1px;
 }
 section .work-field .work-position {
   font-weight: 700;
+}
+section .work-field .work-company {
+  font-weight: 600;
 }/*# sourceMappingURL=preview.css.map */
