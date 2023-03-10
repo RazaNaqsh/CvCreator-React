@@ -29,21 +29,26 @@ export default function Preview(props) {
 	});
 	return (
 		<div className="preview-container">
-			<h1>Preview</h1>
-			<section className="preview-section">
+			<div className="preview-section">
 				<header className="flex">{props.genInfo.name}</header>
 				<div className="email flex">{props.genInfo.email}</div>
 
-				<aside className="sideBar"></aside>
-				<h1>Personal Info</h1>
+				<main className="main">
+					<aside className="sideBar">
+						<h4>Contact</h4>
+						<small>{props.genInfo.phone}</small>
+					</aside>
+					<section></section>
+				</main>
+				{/* <h1>Personal Info</h1>
 				{genInfoElements}
 
 				<h1>Edu Info</h1>
 				{eduInfoElements}
 
 				<h1>Work Info</h1>
-				{workInfoElements}
-			</section>
+				{workInfoElements} */}
+			</div>
 		</div>
 	);
 }
