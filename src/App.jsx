@@ -188,14 +188,14 @@ function App() {
 			<div className="form-container">
 				<h1>Cv Creator</h1>
 				<section className="form-section">
-					<h2>Enter Your details</h2>
+					<h2 className="field-title">Enter Your details</h2>
 					<div className="form-field-container">{generalInputElements}</div>
 
-					<h2>Enter your Educational Details</h2>
+					<h2 className="field-title">Enter your Educational Details</h2>
 					{eduElements}
 					<button onClick={newEduField}>Add</button>
 
-					<h2>Enter Work Details</h2>
+					<h2 className="field-title">Enter Work Details</h2>
 					{workElements}
 					<button onClick={newWorkField}>Add</button>
 				</section>

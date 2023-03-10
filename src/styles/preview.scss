@@ -34,23 +34,25 @@ header {
 	width: 100%;
 	padding: 2rem 0.7rem;
 	letter-spacing: 1px;
-	h5 {
-		margin-bottom: 5px;
+	.contact-heading {
+		margin-bottom: 10px;
+		letter-spacing: 2px;
+		font-weight: 800;
 	}
 	p {
 		letter-spacing: 2px;
 		font-size: 0.7rem;
 		line-height: 1.5;
 	}
-	.contactInfo {
-		padding: 1rem 0;
-	}
-
-	.edu-field {
+	.contact-field {
 		margin: 1rem 0;
 	}
 
-	.eduInfo {
+	.edu-field {
+		margin: 0 0 10px;
+	}
+
+	.edu-info {
 		margin: 1rem 0;
 
 		.edu-course {
@@ -74,7 +76,7 @@ section {
 			font-weight: 700;
 		}
 		.work-company {
-			font-weight: 600;
+			font-weight: 500;
 		}
 	}
 }

@@ -40,13 +40,13 @@ export default function Preview(props) {
 				<div className="currentPosition flex">{props.workInfo[0].position}</div>
 
 				<aside className="sideBar">
-					<div className="contactInfo">
-						<h5>Contact</h5>
+					<div className="contact-field">
+						<h5 className="contact-heading">Contact</h5>
 						<p>{props.genInfo.phone}</p>
 						<p>{props.genInfo.email}</p>
 					</div>
-					<div className="eduInfo">
-						<h5>Education Info</h5>
+					<div className="edu-info">
+						<h5 className="contact-heading">Education Info</h5>
 						{eduInfoElements}
 					</div>
 				</aside>
