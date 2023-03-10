@@ -31,6 +31,10 @@ export default function Preview(props) {
 		<div className="preview-container">
 			<h1>Preview</h1>
 			<section className="preview-section">
+				<header className="flex">{props.genInfo.name}</header>
+				<div className="email flex">{props.genInfo.email}</div>
+
+				<aside className="sideBar"></aside>
 				<h1>Personal Info</h1>
 				{genInfoElements}
 

@@ -186,7 +186,7 @@ function App() {
 	return (
 		<div className="App">
 			<div className="form-container">
-				<h1>Cv Maker</h1>
+				<h1>Cv Creator</h1>
 				<section className="form-section">
 					<h2>Enter Your details</h2>
 					<div className="form-field-container">{generalInputElements}</div>

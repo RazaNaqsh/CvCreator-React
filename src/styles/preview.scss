@@ -1,6 +1,22 @@
 .preview-section {
-	border: 1px solid white;
-	padding: 0.5rem;
-	background-color: #e5e5e5;
+	background-color: white;
 	color: #101214;
+	border-radius: 8px;
+}
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+header {
+	min-height: 6rem;
+	font-size: 2rem;
+	letter-spacing: 3px;
+}
+.email {
+	background-color: #e4e4e7;
+	min-height: 2.5rem;
+}
+.sideBar {
+	background-color: #44403c;
 }

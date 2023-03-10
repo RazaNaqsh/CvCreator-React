@@ -1,6 +1,7 @@
 .form-section {
-	border: 1px solid white;
 	padding: 1rem 1.5rem;
+	background-color: #1c1c1c;
+	border-radius: 8px;
 }
 .form-field-container {
 	padding: 5px;
@@ -8,6 +9,9 @@
 input {
 	padding: 0.5rem 1rem;
 	border-radius: 5px;
+	background-color: #292929;
+	color: #fff;
+	border: none;
 }
 label {
 	display: flex;
