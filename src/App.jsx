@@ -1,6 +1,9 @@
 import { nanoid } from "nanoid";
 import React from "react";
+import EduInfo from "./components/EduInfo";
+import PersonalInfo from "./components/PersonalInfo";
 import Preview from "./components/Preview";
+import WorkInfo from "./components/WorkInfo";
 
 function App() {
 	//* general info field
@@ -18,22 +21,6 @@ function App() {
 			[name]: value,
 		}));
 	}
-	// console.log(generalInfo);
-
-	const generalInfoArr = ["name", "email", "phone"];
-	const generalInputElements = generalInfoArr.map((item, index) => {
-		return (
-			<label key={index}>
-				{item}
-				<input
-					type="text"
-					onChange={handleGeneralInfo}
-					name={item}
-					value={generalInfo.item}
-				/>
-			</label>
-		);
-	});
 
 	//* Educational field
 
@@ -42,6 +29,7 @@ function App() {
 			id: nanoid(),
 			title: "",
 			place: "",
+			date: "",
 		},
 	]);
 
@@ -70,46 +58,7 @@ function App() {
 		});
 	}
 
-	const eduElements = eduInfo.map((item) => (
-		<div
-			key={item.id}
-			className="form-field-container"
-		>
-			<label>
-				Title of Study
-				<input
-					type="text"
-					onChange={() => handleEduChange(event, item.id)}
-					name="title"
-					value={item.title}
-				/>
-			</label>
-			<label>
-				Place of Study
-				<input
-					type="text"
-					onChange={() => handleEduChange(event, item.id)}
-					name="place"
-					value={item.place}
-				/>
-			</label>
-			<label>
-				Date
-				<input
-					type="text"
-					onChange={() => handleEduChange(event, item.id)}
-					name="date"
-					value={item.date}
-				/>
-			</label>
-			{eduInfo.length > 1 && (
-				<button onClick={() => deleteEduField(item.id)}>Delete</button>
-			)}
-		</div>
-	));
-
 	// * work field
-	// TODO Needa make input fields reusable, will think on this!
 
 	const [workInfo, setWorkInfo] = React.useState([
 		{
@@ -143,60 +92,34 @@ function App() {
 		});
 	}
 
-	const workElements = workInfo.map((field) => {
-		return (
-			<div
-				key={field.id}
-				className="form-field-container"
-			>
-				<label>
-					Company Name
-					<input
-						type="text"
-						onChange={() => handleWorkChange(event, field.id)}
-						name="company"
-						value={field.company}
-					/>
-				</label>
-				<label>
-					Position
-					<input
-						type="text"
-						onChange={() => handleWorkChange(event, field.id)}
-						name="position"
-						value={field.position}
-					/>
-				</label>
-				<label>
-					Duration
-					<input
-						type="text"
-						onChange={() => handleWorkChange(event, field.id)}
-						name="duration"
-						value={field.duration}
-					/>
-				</label>
-				{workInfo.length > 1 && (
-					<button onClick={() => deleteWorkField(field.id)}>Delete</button>
-				)}
-			</div>
-		);
-	});
-
 	return (
 		<div className="App">
 			<div className="form-container">
 				<h1>Cv Creator</h1>
+
 				<section className="form-section">
 					<h2 className="field-title">Enter Your details</h2>
-					<div className="form-field-container">{generalInputElements}</div>
+					<div className="form-field-container">
+						<PersonalInfo
+							state={generalInfo}
+							handleGenInfo={handleGeneralInfo}
+						/>
+					</div>
 
 					<h2 className="field-title">Enter your Educational Details</h2>
-					{eduElements}
+					<EduInfo
+						state={eduInfo}
+						handleEduChange={handleEduChange}
+						deleteEduField={deleteEduField}
+					/>
 					<button onClick={newEduField}>Add</button>
 
 					<h2 className="field-title">Enter Work Details</h2>
-					{workElements}
+					<WorkInfo
+						state={workInfo}
+						handleWorkChange={handleWorkChange}
+						deleteWorkField={deleteWorkField}
+					/>
 					<button onClick={newWorkField}>Add</button>
 				</section>
 			</div>
