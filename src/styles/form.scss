@@ -23,6 +23,10 @@ input {
 	border: none;
 	margin-bottom: 5px;
 	letter-spacing: 2px;
+	transition: all 150ms ease-in-out;
+	&:hover {
+		background: #1e293b;
+	}
 }
 label {
 	display: flex;
@@ -38,4 +42,8 @@ button {
 	background-color: #334155;
 	color: #fff;
 	border: none;
+	transition: all 150ms ease-in-out;
+	&:hover {
+		background: #0f172a;
+	}
 }

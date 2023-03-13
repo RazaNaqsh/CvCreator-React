@@ -32,7 +32,7 @@ const EduInfo = (props) => {
 				/>
 			</label>
 			{props.state.length > 1 && (
-				<button onClick={() => props.deleteEduField(item.id)}>Delete</button>
+				<button onClick={() => deleteEduField(item.id)}>Delete</button>
 			)}
 		</div>
 	));
