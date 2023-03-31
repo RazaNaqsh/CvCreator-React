@@ -8,6 +8,11 @@ preview CV in real-time
 
 https://razanaqsh.github.io/Project-CvApplication/
 
+## Overview:
+
+![cvGen](https://user-images.githubusercontent.com/108403182/229100050-b0ed4777-9917-4084-b8c3-f6c75926f015.png)
+
+
 ## Features
 
 - Real-time adoption of changes
