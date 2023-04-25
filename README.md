@@ -6,7 +6,7 @@ preview CV in real-time
 
 ## Live-Preview
 
-https://razanaqsh.github.io/Project-CvApplication/
+https://razanaqsh.github.io/CvCreator-React/
 
 ## Overview:
 
